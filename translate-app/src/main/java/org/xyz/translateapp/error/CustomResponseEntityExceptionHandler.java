@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -43,4 +44,5 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
         String detailedMessage = bindingResult.getFieldErrors().stream().map(e -> "[" + e.getField() + "=" + e.getDefaultMessage() + "]").collect(Collectors.joining(","));
         return new ResponseEntity(new ExceptionResponse(new Date(),"Validation failed", detailedMessage),HttpStatus.BAD_REQUEST);
     }
+
 }

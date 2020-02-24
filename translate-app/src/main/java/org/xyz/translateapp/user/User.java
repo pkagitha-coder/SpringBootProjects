@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
@@ -26,9 +27,12 @@ public class User {
     @Column(name="email",unique = true)
     private String email;
 
+    @Transient
     @Size(min=3,max=12,message = "password should be between 3 characters and 12 characters long")
-    @Column(name="password")
     private String password;
+
+    @Column(name="secret")
+    private String secret;
 
     public long getId() {
         return id;
@@ -60,5 +64,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 }
