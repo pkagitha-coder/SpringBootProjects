@@ -1,5 +1,6 @@
 package org.xyz.translateapp.user;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class UserResource {
     UserRepo userRepo;
 
     @PostMapping("/user/register")
-    public ResponseEntity<String> registerUser(@RequestBody User user) {
+    public ResponseEntity<String> registerUser(@Valid @RequestBody User user) {
         Optional<User> userByEmail = userRepo.findUserByEmail(user.getEmail());
         if (userByEmail.isPresent()) {
             throw new UserAlreadyExistsException(String.format("User with email '%s' already exists,Please try with another email", userByEmail.get().getEmail()));

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 
@@ -16,12 +18,15 @@ public class User {
     @Column(name="id")
     private long id;
 
+    @Size(min=3,max=12,message = "Name should be between 3 characters and 12 characters long")
     @Column(name="name")
     private String name;
 
+    @Email(message = "Email address should be valid")
     @Column(name="email",unique = true)
     private String email;
 
+    @Size(min=3,max=12,message = "password should be between 3 characters and 12 characters long")
     @Column(name="password")
     private String password;
 
