@@ -4,7 +4,7 @@ Supports following REST APIs
 
 Authentication Required for below APIs(Use Basic Authentication)
 - /users/profile API is fetch the user details. This api needs username and password.    
-- /translate/<srcLang>/to/<destLang> API is used to translate text. This API takes text to be translated as response body.
+- /translate/{srcLang}/to/{targetLang} API is used to translate text. This API takes text to be translated as response body.
 
 
 #How To Run Application
