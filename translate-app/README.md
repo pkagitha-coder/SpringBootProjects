@@ -12,7 +12,16 @@ JSON Payload
 ```
 
 Authentication Required for below APIs(Use Basic Authentication)
-- /users/profile API is fetch the user details. This api needs username and password.    
+- /users/profile API is fetch the user details. This api needs username and password. 
+
+Response JSON Payload
+```
+{
+	"name": "Pradeep",
+	"email": "pradeep@one.com"
+}
+```
+
 - /translate/{srcLang}/to/{targetLang} API is used to translate text. This API takes text to be translated as request body.
 
 
